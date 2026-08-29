@@ -9,9 +9,13 @@
 
 <body>
     <script>
-        const videos = ["assets/video1.mp4", "assets/video2.mp4", "assets/video3.mp4" ];
-        
-        
+        const videos = [
+
+            "https://pub-163f05d7cc66422e9da437a72a4e3d9a.r2.dev/video1.mp4",
+            "https://pub-163f05d7cc66422e9da437a72a4e3d9a.r2.dev/video2.mp4",
+            "assets/video3.mp4"];
+
+
         let index = 0;
         const player = document.getElementById("player");
         let currentVideo = videos[index];
@@ -45,14 +49,14 @@
                     console.log(response.status);
 
                     if (response.ok) {
-                        player.src = videos[index];
-                        player.play()
+
+                        console.log("Video Exists");
                     } else {
                         console.log("Video does not exist");
                         playNext()
+                        return
                     }
                 });
-
             player.src = videos[index];
             player.play()
 
